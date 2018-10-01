@@ -1,4 +1,9 @@
 import discord
+import requests
+import json
+
+user = 'rZuTJlFKDZF5oi0T'
+key = 'jiaN5JDdXrvjRNFng4t9rlMF47pjazst'
 
 class message():
     def __init__(self, bot):
@@ -7,8 +12,15 @@ class message():
     async def on_message(self, message):
         if 'Hi Chara' in message.content:
             await self.bot.send_message(message.channel, "Hello")
+            
+        if not message.author.bot and (message.server == None or self.bot.user in message.mentions):
+            await self.bot.send_typing(message.channel)
+            txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
+            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'chara', 'text':txt}).text)
+            if r['status'] == 'success':
+                await self.bot.send_message(message.channel, r['response'] )
 
 
-
+requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Chara'})
 def setup(bot):
     bot.add_cog(message(bot))
