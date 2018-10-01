@@ -20,7 +20,7 @@ class message():
             if r['status'] == 'success':
                 await self.bot.send_message(message.channel, r['response'] )
 
-
+print('Starting Cleverbot...')
 requests.post('https://cleverbot.io/1.0/create', json={'user':user, 'key':key, 'nick':'Chara'})
 def setup(bot):
     bot.add_cog(message(bot))
