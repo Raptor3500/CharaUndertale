@@ -6,7 +6,7 @@ class message():
 
     async def on_message(self, message):
         if 'Hi' or 'hi' in message.content:
-            await self.bot.send_message(message.channel, "Hi")
+            await self.bot.send_message(message.channel, "Hello")
 
 
 
