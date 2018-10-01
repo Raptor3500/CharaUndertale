@@ -10,7 +10,7 @@ startup_extensions = [
 
 bot = commands.Bot(command_prefix='claire ')
 bot.remove_command('help')
-ownerID = "274298631517896704"
+ownerID = "368820744903327744"
 
 # To remove the help command and make your own help command
 #bot.remove_command('help')
