@@ -8,7 +8,7 @@ startup_extensions = [
   'message'
 ]
 
-bot = commands.Bot(command_prefix='claire ')
+bot = commands.Bot(command_prefix='chara ')
 bot.remove_command('help')
 ownerID = "368820744903327744"
 
