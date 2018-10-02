@@ -16,7 +16,7 @@ class message():
         if not message.author.bot and (message.server == None or self.bot.user in message.mentions):
             await self.bot.send_typing(message.channel)
             txt = message.content.replace(message.server.me.mention,'') if message.server else message.content
-            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'chara', 'text':txt}).text)
+            r = json.loads(requests.post('https://cleverbot.io/1.0/ask', json={'user':user, 'key':key, 'nick':'claire', 'text':txt}).text)
             if r['status'] == 'success':
                 await self.bot.send_message(message.channel, r['response'] )
 
